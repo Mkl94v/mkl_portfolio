@@ -447,7 +447,163 @@
             box-shadow: var(--shadow-hover);
         }
 
-        /* Projects Section */
+        /* Experience Section - DÉPLACÉ AVANT CONTEXTE PRO */
+        .experience-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .experience-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .experience-card:nth-child(1) { animation-delay: 0.2s; }
+        .experience-card:nth-child(2) { animation-delay: 0.4s; }
+
+        .experience-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .experience-card:hover .card-header::before {
+            left: 100%;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .missions {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .missions li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            transition: var(--transition);
+        }
+
+        .missions li:hover {
+            transform: translateX(10px);
+            padding-left: 10px;
+        }
+
+        .missions li::before {
+            content: "▸";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .missions li:hover::before {
+            color: var(--accent);
+            transform: scale(1.5);
+        }
+
+        /* Contexte Pro Section - APRÈS EXPÉRIENCES */
+        .company-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .company-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .company-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .company-card:nth-child(1) { animation-delay: 0.2s; }
+        .company-card:nth-child(2) { animation-delay: 0.4s; }
+
+        .company-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .company-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            transition: var(--transition);
+        }
+
+        .company-card:hover::before {
+            height: 100%;
+        }
+
+        .company-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .company-card:hover .company-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+
+        /* Projects Section - DÉPLACÉ APRÈS CONTEXTE PRO */
         .projects-section {
             background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
         }
@@ -977,95 +1133,6 @@
             border-top: 2px solid #eee;
         }
 
-        /* Experience Section */
-        .experience-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .experience-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .experience-card:nth-child(1) { animation-delay: 0.2s; }
-        .experience-card:nth-child(2) { animation-delay: 0.4s; }
-
-        .experience-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .card-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: var(--transition);
-        }
-
-        .experience-card:hover .card-header::before {
-            left: 100%;
-        }
-
-        .card-content {
-            padding: 2rem;
-        }
-
-        .missions {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .missions li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: flex-start;
-            transition: var(--transition);
-        }
-
-        .missions li:hover {
-            transform: translateX(10px);
-            padding-left: 10px;
-        }
-
-        .missions li::before {
-            content: "▸";
-            color: var(--primary);
-            font-weight: bold;
-            margin-right: 10px;
-            flex-shrink: 0;
-            transition: var(--transition);
-        }
-
-        .missions li:hover::before {
-            color: var(--accent);
-            transform: scale(1.5);
-        }
-
         /* Telemedicine Section */
         .telemedicine-section {
             background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
@@ -1151,73 +1218,6 @@
 
         .telemedicine-card:hover .version-badge {
             transform: scale(1.1) rotate(360deg);
-        }
-
-        /* Company Section */
-        .company-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .company-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .company-card {
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .company-card:nth-child(1) { animation-delay: 0.2s; }
-        .company-card:nth-child(2) { animation-delay: 0.4s; }
-
-        .company-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .company-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 0;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-            transition: var(--transition);
-        }
-
-        .company-card:hover::before {
-            height: 100%;
-        }
-
-        .company-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            color: var(--primary);
-            font-size: 2rem;
-            transition: var(--transition);
-        }
-
-        .company-card:hover .company-icon {
-            transform: scale(1.1) rotate(10deg);
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
         }
 
         /* Contact Section */
@@ -1592,12 +1592,12 @@
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#apropos">À propos</a></li>
+                <li><a href="#experience">Expériences</a></li>
+                <li><a href="#contexte">Contexte Pro</a></li>
                 <li><a href="#projets">Projets</a></li>
                 <li><a href="#formation">Formation</a></li>
-                <li><a href="#experience">Expériences</a></li>
                 <li><a href="#cv">Mon CV</a></li>
                 <li><a href="#telemedecine">Veille Tech</a></li>
-                <li><a href="#entreprise">Contexte Pro</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1653,7 +1653,83 @@
         </div>
     </section>
 
-    <!-- Projets Section - MISE À JOUR -->
+    <!-- Experience Section - DÉPLACÉ AVANT CONTEXTE PRO -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2>Expériences Professionnelles</h2>
+            
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="card-header">
+                        <h3>Stage de 2ème année</h3>
+                        <p>Cabinet d'avocats</p>
+                    </div>
+                    <div class="card-content">
+                        <h4>Stagiaire Support Informatique</h4>
+                        <p><strong>Cabinet De Gaulle Fleurance & Associés</strong></p>
+                        
+                        <ul class="missions">
+                            <li>Traitement des tickets des clients internes</li>
+                            <li>Interventions techniques sur postes de travail</li>
+                            <li>Préparations de nouveaux postes Windows</li>
+                            <li>Gestion du parc informatique via GLPI</li>
+                            <li>Configuration des droits NTFS</li>
+                            <li>Configuration du BIOS</li>
+                            <li>Assistance signatures d'email</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="card-header">
+                        <h3>Stage de 1ère année</h3>
+                        <p>Cabinet d'avocats</p>
+                    </div>
+                    <div class="card-content">
+                        <h4>Stagiaire Support Informatique</h4>
+                        <p><strong>Cabinet De Gaulle Fleurance & Associés</strong></p>
+                        
+                        <ul class="missions">
+                            <li>Réalisation de tests d'environnement</li>
+                            <li>Traitement des tickets clients</li>
+                            <li>Interventions techniques</li>
+                            <li>Préparations de postes Windows</li>
+                            <li>Gestion du parc sur GLPI</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contexte Pro Section - APRÈS EXPÉRIENCES -->
+    <section id="contexte" class="company-section">
+        <div class="container">
+            <h2>Contexte Professionnel</h2>
+            
+            <div class="company-cards">
+                <div class="company-card">
+                    <div class="company-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Cabinet De Gaulle Fleurance & Associés</h3>
+                    <p>Cabinet spécialisé en droit des affaires, offrant des services juridiques stratégiques aux entreprises en droit des sociétés, fiscalité, propriété intellectuelle et contentieux.</p>
+                    <p>Environnement exigeant nécessitant une infrastructure informatique fiable, sécurisée et performante pour garantir la confidentialité des données clients.</p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Direction des Systèmes d'Information (DSI)</h3>
+                    <p>Pilote l'ensemble des technologies de l'information au sein du cabinet, assurant le bon fonctionnement des systèmes, la sécurité des données et le support aux équipes.</p>
+                    <p>Rôle crucial pour garantir la confidentialité, l'intégrité et la disponibilité des informations sensibles dans un environnement juridique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets Section - APRÈS CONTEXTE PRO -->
     <section id="projets" class="projects-section">
         <div class="container">
             <h2>Mes Projets</h2>
@@ -1849,55 +1925,6 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section">
-        <div class="container">
-            <h2>Expériences Professionnelles</h2>
-            
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="card-header">
-                        <h3>Stage de 2ème année</h3>
-                        <p>Cabinet d'avocats</p>
-                    </div>
-                    <div class="card-content">
-                        <h4>Stagiaire Support Informatique</h4>
-                        <p><strong>Cabinet De Gaulle Fleurance & Associés</strong></p>
-                        
-                        <ul class="missions">
-                            <li>Traitement des tickets des clients internes</li>
-                            <li>Interventions techniques sur postes de travail</li>
-                            <li>Préparations de nouveaux postes Windows</li>
-                            <li>Gestion du parc informatique via GLPI</li>
-                            <li>Configuration des droits NTFS</li>
-                            <li>Configuration du BIOS</li>
-                            <li>Assistance signatures d'email</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="experience-card">
-                    <div class="card-header">
-                        <h3>Stage de 1ère année</h3>
-                        <p>Cabinet d'avocats</p>
-                    </div>
-                    <div class="card-content">
-                        <h4>Stagiaire Support Informatique</h4>
-                        <p><strong>Cabinet De Gaulle Fleurance & Associés</strong></p>
-                        
-                        <ul class="missions">
-                            <li>Réalisation de tests d'environnement</li>
-                            <li>Traitement des tickets clients</li>
-                            <li>Interventions techniques</li>
-                            <li>Préparations de postes Windows</li>
-                            <li>Gestion du parc sur GLPI</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CV Section avec Tableau de Synthèse -->
     <section id="cv" class="cv-section">
         <div class="container">
@@ -2061,19 +2088,16 @@
                     </div>
 
                     <!-- Bouton de téléchargement avec Tableau de Synthèse -->
-                    <!-- Dans la section CV -->
-<div class="cv-download-btn">
-    <a href="CV_Mickael_Boutsry.pdf" class="btn" download="CV_Mickael_Boutsry.pdf" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); margin-bottom: 1rem;">
-        <i class="fas fa-file-pdf"></i> Télécharger mon CV
-    </a>
-    <br>
-    <a href="Tableau_de_Synthèse.pdf.pdf" class="btn" download="Tableau_de_Synthèse.pdf.pdf" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
-        <i class="fas fa-file-contract"></i> Télécharger le Tableau de Synthèse
-    </a>
-    <p style="margin-top: 1rem; color: var(--gray); font-size: 0.9rem;">
-        <i class="fas fa-info-circle"></i> Les deux documents sont au format PDF
-    </p>
-</div>
+                    <div class="cv-download-btn">
+                        <a href="CV_Mickael_Boutsry.pdf" class="btn" download="CV_Mickael_Boutsry.pdf" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); margin-bottom: 1rem;">
+                            <i class="fas fa-file-pdf"></i> Télécharger mon CV
+                        </a>
+                        <br>
+                        <a href="Tableau_de_Synthèse.pdf" class="btn" download="Tableau_de_Synthèse.pdf.pdf" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                            <i class="fas fa-file-contract"></i> Télécharger le Tableau de Synthèse
+                        </a>
+                        <p style="margin-top: 1rem; color: var(--gray); font-size: 0.9rem;">
+                            <i class="fas fa-info-circle"></i> Les deux documents sont au format PDF
                         </p>
                     </div>
                 </div>
@@ -2130,33 +2154,6 @@
                         <p><strong>Double menace :</strong> Défauts techniques (comme ici) et cyberattaques peuvent toutes deux fausser les données thérapeutiques.</p>
                         <p><strong>Perspective :</strong> Renforcement des normes de développement sécurisé (DevSec) et audits de sécurité obligatoires pour les DMC.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Company Section -->
-    <section id="entreprise" class="company-section">
-        <div class="container">
-            <h2>Contexte Professionnel</h2>
-            
-            <div class="company-cards">
-                <div class="company-card">
-                    <div class="company-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>Cabinet De Gaulle Fleurance & Associés</h3>
-                    <p>Cabinet spécialisé en droit des affaires, offrant des services juridiques stratégiques aux entreprises en droit des sociétés, fiscalité, propriété intellectuelle et contentieux.</p>
-                    <p>Environnement exigeant nécessitant une infrastructure informatique fiable, sécurisée et performante pour garantir la confidentialité des données clients.</p>
-                </div>
-                
-                <div class="company-card">
-                    <div class="company-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Direction des Systèmes d'Information (DSI)</h3>
-                    <p>Pilote l'ensemble des technologies de l'information au sein du cabinet, assurant le bon fonctionnement des systèmes, la sécurité des données et le support aux équipes.</p>
-                    <p>Rôle crucial pour garantir la confidentialité, l'intégrité et la disponibilité des informations sensibles dans un environnement juridique.</p>
                 </div>
             </div>
         </div>
@@ -2421,5 +2418,3 @@
     </script>
 </body>
 </html>
-
-
