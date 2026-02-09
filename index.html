@@ -145,18 +145,6 @@
             }
         }
 
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
         /* Navigation */
         nav {
             position: fixed;
@@ -447,7 +435,7 @@
             box-shadow: var(--shadow-hover);
         }
 
-        /* Experience Section - DÉPLACÉ AVANT CONTEXTE PRO */
+        /* Experience Section - MODIFIÉ POUR AJOUTER LE LOGO TEXTUEL */
         .experience-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
@@ -467,6 +455,8 @@
             transition: var(--transition);
             opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
+            display: flex;
+            flex-direction: column;
         }
 
         .experience-card:nth-child(1) { animation-delay: 0.2s; }
@@ -483,6 +473,11 @@
             padding: 2rem;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            min-height: 160px;
         }
 
         .card-header::before {
@@ -500,13 +495,97 @@
             left: 100%;
         }
 
+        .card-header-content {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .card-header h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .card-header p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        /* Styles pour le logo textuel du cabinet */
+        .cabinet-logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1.5rem;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .experience-card:hover .cabinet-logo-text {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .logo-line-1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white;
+            line-height: 1;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .logo-line-2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: white;
+            line-height: 1;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-line-3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.2;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo-line-4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .card-content {
             padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .missions {
             list-style: none;
             margin-top: 1.5rem;
+            flex: 1;
         }
 
         .missions li {
@@ -746,6 +825,7 @@
             transform: scale(1.5);
         }
 
+        /* Project Footer - MODIFIÉ POUR AJOUTER LE BOUTON DE TÉLÉCHARGEMENT */
         .project-footer {
             padding: 1.5rem 2rem;
             background: #f8f9fa;
@@ -753,6 +833,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .project-status {
@@ -773,6 +855,52 @@
 
         .status-planned {
             color: var(--gray);
+        }
+
+        /* Bouton de téléchargement pour le schéma logique */
+        .schema-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #4cc9f0, #4895ef);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .schema-download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #3a0ca3, #4361ee);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .schema-download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .schema-download-btn:hover::before {
+            left: 0;
+        }
+
+        .schema-download-btn i {
+            font-size: 1.1rem;
         }
 
         /* Comparison Table Styles */
@@ -1403,7 +1531,7 @@
             font-size: 1rem;
         }
 
-        /* Responsive Design */
+        /* Responsive Design - MODIFICATIONS POUR LE LOGO */
         @media (max-width: 992px) {
             h1 {
                 font-size: 2.8rem;
@@ -1458,6 +1586,27 @@
                 right: auto !important;
                 border-left: none !important;
                 border-right: 12px solid var(--card-bg) !important;
+            }
+            
+            .cabinet-logo-text {
+                min-width: 180px;
+                padding: 12px 15px;
+            }
+            
+            .logo-line-1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo-line-2 {
+                font-size: 1.2rem;
+            }
+            
+            .logo-line-3 {
+                font-size: 1rem;
+            }
+            
+            .logo-line-4 {
+                font-size: 0.9rem;
             }
         }
 
@@ -1523,6 +1672,36 @@
                 display: block;
                 overflow-x: auto;
             }
+
+            .card-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+            }
+            
+            .cabinet-logo-text {
+                margin-left: 0;
+                margin-top: 1.5rem;
+                min-width: 100%;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .card-header-content {
+                min-width: 100%;
+            }
+            
+            .project-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .schema-download-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1575,6 +1754,32 @@
             .comparison-table td {
                 padding: 0.8rem;
                 font-size: 0.9rem;
+            }
+            
+            .cabinet-logo-text {
+                padding: 10px 12px;
+            }
+            
+            .logo-line-1 {
+                font-size: 1.4rem;
+            }
+            
+            .logo-line-2 {
+                font-size: 1.1rem;
+            }
+            
+            .logo-line-3 {
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+            
+            .logo-line-4 {
+                font-size: 0.8rem;
+            }
+            
+            .schema-download-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -1653,7 +1858,7 @@
         </div>
     </section>
 
-    <!-- Experience Section - DÉPLACÉ AVANT CONTEXTE PRO -->
+    <!-- Experience Section - MODIFIÉ AVEC LOGO TEXTUEL -->
     <section id="experience" class="experience-section">
         <div class="container">
             <h2>Expériences Professionnelles</h2>
@@ -1661,12 +1866,21 @@
             <div class="experience-grid">
                 <div class="experience-card">
                     <div class="card-header">
-                        <h3>Stage de 2ème année</h3>
-                        <p>Cabinet d'avocats</p>
+                        <div class="card-header-content">
+                            <h3>Stage de 2ème année</h3>
+                            <p>Cabinet d'avocats</p>
+                            <p><strong>Cabinet De Gaulle Fleurance & Associés</strong></p>
+                        </div>
+                        <!-- Logo textuel du cabinet d'avocats -->
+                        <div class="cabinet-logo-text">
+                            <div class="logo-line-1">DE GAULLE</div>
+                            <div class="logo-line-2">FLEURANCE</div>
+                            <div class="logo-line-3">AVOCATS</div>
+                            <div class="logo-line-4">NOTAIRES</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h4>Stagiaire Support Informatique</h4>
-                        <p><strong>Cabinet De Gaulle Fleurance & Associés</strong></p>
                         
                         <ul class="missions">
                             <li>Traitement des tickets des clients internes</li>
@@ -1682,12 +1896,21 @@
                 
                 <div class="experience-card">
                     <div class="card-header">
-                        <h3>Stage de 1ère année</h3>
-                        <p>Cabinet d'avocats</p>
+                        <div class="card-header-content">
+                            <h3>Stage de 1ère année</h3>
+                            <p>Cabinet d'avocats</p>
+                            <p><strong>Cabinet De Gaulle Fleurance & Associés</strong></p>
+                        </div>
+                        <!-- Logo textuel du cabinet d'avocats -->
+                        <div class="cabinet-logo-text">
+                            <div class="logo-line-1">DE GAULLE</div>
+                            <div class="logo-line-2">FLEURANCE</div>
+                            <div class="logo-line-3">AVOCATS</div>
+                            <div class="logo-line-4">NOTAIRES</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h4>Stagiaire Support Informatique</h4>
-                        <p><strong>Cabinet De Gaulle Fleurance & Associés</strong></p>
                         
                         <ul class="missions">
                             <li>Réalisation de tests d'environnement</li>
@@ -1864,12 +2087,31 @@
                             <li>Alertes configurées pour les métriques critiques</li>
                             <li>Tableaux de bord personnalisés pour le monitoring</li>
                         </ul>
+                        
+                        <h4>Documentation technique</h4>
+                        <p>Dans le cadre de ce projet, j'ai réalisé un schéma logique détaillant l'architecture de supervision mise en place :</p>
+                        
+                        <div class="project-tech" style="margin-top: 1rem; margin-bottom: 1rem;">
+                            <span class="tech-tag">
+                                <i class="fas fa-sitemap"></i> Architecture réseau
+                            </span>
+                            <span class="tech-tag">
+                                <i class="fas fa-diagram-project"></i> Schéma logique
+                            </span>
+                            <span class="tech-tag">
+                                <i class="fas fa-file-pdf"></i> Documentation
+                            </span>
+                        </div>
                     </div>
                     <div class="project-footer">
                         <div class="project-status">
                             <i class="fas fa-check-circle status-completed"></i>
                             <span class="status-completed">TP terminé</span>
                         </div>
+                        <!-- Bouton de téléchargement du schéma logique -->
+                        <a href="shema_logique.pdf" class="schema-download-btn" download="Schéma_logique_supervision_Checkmk.pdf">
+                            <i class="fas fa-download"></i> Télécharger le schéma logique
+                        </a>
                     </div>
                 </div>
             </div>
@@ -2415,9 +2657,25 @@
                 }, 2000);
             });
         });
+        
+        // Animation pour le bouton de téléchargement du schéma logique
+        document.querySelectorAll('.schema-download-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Téléchargement...';
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                    // Animation de succès
+                    this.style.background = 'linear-gradient(135deg, #4cc9f0, #4895ef)';
+                    setTimeout(() => {
+                        this.style.background = '';
+                    }, 2000);
+                }, 2000);
+            });
+        });
     </script>
 </body>
 </html>
-
-
-
