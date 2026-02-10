@@ -435,7 +435,207 @@
             box-shadow: var(--shadow-hover);
         }
 
-        /* Experience Section - MODIFIÉ POUR AJOUTER LE LOGO TEXTUEL */
+        /* Formation Section */
+        .formation-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            width: calc(50% - 40px);
+            margin-bottom: 4rem;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: auto;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-right: auto;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 40px;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-right: 12px solid var(--card-bg);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 40px;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 12px solid var(--card-bg);
+        }
+
+        .timeline-date {
+            position: absolute;
+            top: 30px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: -110px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            left: -110px;
+        }
+
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .cert-badge {
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .cert-badge:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        /* Contexte Pro Section - AVANT EXPÉRIENCES */
+        .company-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .company-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .company-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .company-card:nth-child(1) { animation-delay: 0.2s; }
+        .company-card:nth-child(2) { animation-delay: 0.4s; }
+
+        .company-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .company-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            transition: var(--transition);
+        }
+
+        .company-card:hover::before {
+            height: 100%;
+        }
+
+        .company-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .company-card:hover .company-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+
+        /* Experience Section - APRÈS CONTEXTE PRO */
         .experience-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
@@ -615,74 +815,7 @@
             transform: scale(1.5);
         }
 
-        /* Contexte Pro Section - APRÈS EXPÉRIENCES */
-        .company-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .company-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .company-card {
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .company-card:nth-child(1) { animation-delay: 0.2s; }
-        .company-card:nth-child(2) { animation-delay: 0.4s; }
-
-        .company-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .company-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 0;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-            transition: var(--transition);
-        }
-
-        .company-card:hover::before {
-            height: 100%;
-        }
-
-        .company-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            color: var(--primary);
-            font-size: 2rem;
-            transition: var(--transition);
-        }
-
-        .company-card:hover .company-icon {
-            transform: scale(1.1) rotate(10deg);
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-        }
-
-        /* Projects Section - DÉPLACÉ APRÈS CONTEXTE PRO */
+        /* Projects Section - APRÈS EXPÉRIENCES */
         .projects-section {
             background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
         }
@@ -944,135 +1077,6 @@
         .new-solution {
             background-color: #e8f7ef;
             border-left: 4px solid #4cc9f0;
-        }
-
-        /* Timeline */
-        .timeline {
-            max-width: 900px;
-            margin: 4rem auto 0;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            width: calc(50% - 40px);
-            margin-bottom: 4rem;
-            position: relative;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .timeline-item:nth-child(odd) {
-            margin-left: auto;
-        }
-
-        .timeline-item:nth-child(even) {
-            margin-right: auto;
-        }
-
-        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
-
-        .timeline-content {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            content: '';
-            position: absolute;
-            left: -10px;
-            top: 40px;
-            width: 0;
-            height: 0;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-            border-right: 12px solid var(--card-bg);
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::before {
-            content: '';
-            position: absolute;
-            right: -10px;
-            top: 40px;
-            width: 0;
-            height: 0;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-            border-left: 12px solid var(--card-bg);
-        }
-
-        .timeline-date {
-            position: absolute;
-            top: 30px;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            z-index: 2;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-date {
-            right: -110px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-date {
-            left: -110px;
-        }
-
-        .certifications {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .cert-badge {
-            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
-            color: var(--primary);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            transition: var(--transition);
-            border: 2px solid transparent;
-        }
-
-        .cert-badge:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
         }
 
         /* CV Section */
@@ -1797,10 +1801,10 @@
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#apropos">À propos</a></li>
-                <li><a href="#experience">Expériences</a></li>
-                <li><a href="#contexte">Contexte Pro</a></li>
-                <li><a href="#projets">Projets</a></li>
                 <li><a href="#formation">Formation</a></li>
+                <li><a href="#contexte">Contexte Pro</a></li>
+                <li><a href="#experience">Expériences</a></li>
+                <li><a href="#projets">Projets</a></li>
                 <li><a href="#cv">Mon CV</a></li>
                 <li><a href="#telemedecine">Veille Tech</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -1858,7 +1862,83 @@
         </div>
     </section>
 
-    <!-- Experience Section - MODIFIÉ AVEC LOGO TEXTUEL -->
+    <!-- Formation & Certifications -->
+    <section id="formation" class="formation-section">
+        <div class="container">
+            <h2>Formation & Certifications</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024-2026</div>
+                    <div class="timeline-content">
+                        <h3>BTS SIO - Option SISR</h3>
+                        <p><strong>Lycée Parc de Vilgénis, Massy</strong></p>
+                        <p>Formation aux solutions d'infrastructure, systèmes et réseaux avec spécialisation en administration systèmes, réseaux, virtualisation et cybersécurité.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023-2024</div>
+                    <div class="timeline-content">
+                        <h3>Bac STMG - Spécialité SIG</h3>
+                        <p><strong>Lycée Jean Macé, Vitry-sur-Seine</strong></p>
+                        <p>Option Systèmes d'Information de Gestion. Acquisition des bases des systèmes d'information et de la gestion numérique en entreprise.</p>
+                        
+                        <div class="certifications">
+                            <div class="cert-badge">
+                                <i class="fas fa-certificate"></i> Certification PIX (2023-2024)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Certifications complémentaires</h3>
+                        <p>Formations en cybersécurité pour renforcer mes compétences en sécurité informatique.</p>
+                        
+                        <div class="certifications">
+                            <div class="cert-badge">
+                                <i class="fas fa-shield-alt"></i> Attestation SECNUM Académie (2024)
+                            </div>
+                            <div class="cert-badge">
+                                <i class="fas fa-trophy"></i> Prix ECONOFIDES (2021)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contexte Pro Section - AVANT EXPÉRIENCES -->
+    <section id="contexte" class="company-section">
+        <div class="container">
+            <h2>Contexte Professionnel</h2>
+            
+            <div class="company-cards">
+                <div class="company-card">
+                    <div class="company-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Cabinet De Gaulle Fleurance & Associés</h3>
+                    <p>Cabinet spécialisé en droit des affaires, offrant des services juridiques stratégiques aux entreprises en droit des sociétés, fiscalité, propriété intellectuelle et contentieux.</p>
+                    <p>Environnement exigeant nécessitant une infrastructure informatique fiable, sécurisée et performante pour garantir la confidentialité des données clients.</p>
+                </div>
+                
+                <div class="company-card">
+                    <div class="company-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Direction des Systèmes d'Information (DSI)</h3>
+                    <p>Pilote l'ensemble des technologies de l'information au sein du cabinet, assurant le bon fonctionnement des systèmes, la sécurité des données et le support aux équipes.</p>
+                    <p>Rôle crucial pour garantir la confidentialité, l'intégrité et la disponibilité des informations sensibles dans un environnement juridique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section - APRÈS CONTEXTE PRO -->
     <section id="experience" class="experience-section">
         <div class="container">
             <h2>Expériences Professionnelles</h2>
@@ -1925,34 +2005,7 @@
         </div>
     </section>
 
-    <!-- Contexte Pro Section - APRÈS EXPÉRIENCES -->
-    <section id="contexte" class="company-section">
-        <div class="container">
-            <h2>Contexte Professionnel</h2>
-            
-            <div class="company-cards">
-                <div class="company-card">
-                    <div class="company-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>Cabinet De Gaulle Fleurance & Associés</h3>
-                    <p>Cabinet spécialisé en droit des affaires, offrant des services juridiques stratégiques aux entreprises en droit des sociétés, fiscalité, propriété intellectuelle et contentieux.</p>
-                    <p>Environnement exigeant nécessitant une infrastructure informatique fiable, sécurisée et performante pour garantir la confidentialité des données clients.</p>
-                </div>
-                
-                <div class="company-card">
-                    <div class="company-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Direction des Systèmes d'Information (DSI)</h3>
-                    <p>Pilote l'ensemble des technologies de l'information au sein du cabinet, assurant le bon fonctionnement des systèmes, la sécurité des données et le support aux équipes.</p>
-                    <p>Rôle crucial pour garantir la confidentialité, l'intégrité et la disponibilité des informations sensibles dans un environnement juridique.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projets Section - APRÈS CONTEXTE PRO -->
+    <!-- Projets Section - APRÈS EXPÉRIENCES -->
     <section id="projets" class="projects-section">
         <div class="container">
             <h2>Mes Projets</h2>
@@ -2112,55 +2165,6 @@
                         <a href="shema_logique.pdf" class="schema-download-btn" download="Schéma_logique_supervision_Checkmk.pdf">
                             <i class="fas fa-download"></i> Télécharger le schéma logique
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formation & Certifications -->
-    <section id="formation" class="formation-section">
-        <div class="container">
-            <h2>Formation & Certifications</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2024-2026</div>
-                    <div class="timeline-content">
-                        <h3>BTS SIO - Option SISR</h3>
-                        <p><strong>Lycée Parc de Vilgénis, Massy</strong></p>
-                        <p>Formation aux solutions d'infrastructure, systèmes et réseaux avec spécialisation en administration systèmes, réseaux, virtualisation et cybersécurité.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2023-2024</div>
-                    <div class="timeline-content">
-                        <h3>Bac STMG - Spécialité SIG</h3>
-                        <p><strong>Lycée Jean Macé, Vitry-sur-Seine</strong></p>
-                        <p>Option Systèmes d'Information de Gestion. Acquisition des bases des systèmes d'information et de la gestion numérique en entreprise.</p>
-                        
-                        <div class="certifications">
-                            <div class="cert-badge">
-                                <i class="fas fa-certificate"></i> Certification PIX (2023-2024)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Certifications complémentaires</h3>
-                        <p>Formations en cybersécurité pour renforcer mes compétences en sécurité informatique.</p>
-                        
-                        <div class="certifications">
-                            <div class="cert-badge">
-                                <i class="fas fa-shield-alt"></i> Attestation SECNUM Académie (2024)
-                            </div>
-                            <div class="cert-badge">
-                                <i class="fas fa-trophy"></i> Prix ECONOFIDES (2021)
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
